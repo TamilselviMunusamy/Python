@@ -2,7 +2,7 @@ import tkinter as tk
 from tkinter import messagebox
 from utils.parser import parse_task
 from services.task_service import load_tasks, save_tasks
-
+from utils.api import get_quote
 class TodoApp:
     def __init__(self, root):
         self.root = root
@@ -21,6 +21,8 @@ class TodoApp:
         self.entry.pack(pady=5)
 
         tk.Button(self.root, text="Add Task", command=self.add_task).pack()
+        
+        tk.Button(self.root, text="💡 Get Motivation", command=get_quote).pack(pady=5)
 
         self.search_entry = tk.Entry(self.root, width=40)
         self.search_entry.pack(pady=5)
